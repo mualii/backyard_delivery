@@ -20,7 +20,7 @@ class ContactScreen extends StatelessWidget {
         backgroundColor: Color(0xffB09B87),
         appBar: customisedAppBar(
           context,
-          false,
+          true,
         ),
         body: Container(
           decoration: BoxDecoration(

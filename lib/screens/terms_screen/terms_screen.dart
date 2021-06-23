@@ -14,7 +14,7 @@ class TermsScreen extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: Color(0xffB09B87),
-        appBar: customisedAppBar(context, false, true, 'Terms and Conditions'),
+        appBar: customisedAppBar(context, true, true, 'Terms and Conditions'),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.white,

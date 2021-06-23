@@ -14,7 +14,7 @@ class PreviousOrdersScreen extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: Color(0xffB09B87),
-        appBar: customisedAppBar(context, false, true, 'الطلبات السابقة'),
+        appBar: customisedAppBar(context, true, true, 'الطلبات السابقة'),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.white,
@@ -38,7 +38,7 @@ class PreviousOrdersScreen extends StatelessWidget {
   Widget HasDeliveredBuild() {
     return Center(
         child: Container(
-      height: .1.sh,
+      height: .15.sh,
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
