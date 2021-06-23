@@ -75,79 +75,7 @@ class ContactScreen extends StatelessWidget {
                     SizedBox(height: .05.sh),
                     InkWell(
                       onTap: () {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AlertDialog(
-                            content: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('152421'),
-                                    Text(':'),
-                                    Text('طلب رقم'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('2021 / 05 / 18'),
-                                    Text(':'),
-                                    Text('تاريخ التوصيل'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('05 : 30 PM'),
-                                    Text(':'),
-                                    Text('الميعاد'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('عبد الله فرج'),
-                                    Text(':'),
-                                    Text('إسم العميل'),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text('+966 5441 7114'),
-                                    Text(':'),
-                                    Text('الجوال'),
-                                  ],
-                                ),
-                                Text('عنوان العميل'),
-                                Container(
-                                  height: .3.sh,
-                                  width: double.infinity,
-                                  child: Image.asset(
-                                    'assets/images/Group 8218.png',
-                                  ),
-                                ),
-                              ],
-                            ),
-                            actions: <Widget>[
-                              TextButton(
-                                onPressed: () =>
-                                    Navigator.pop(context, 'Cancel'),
-                                child: const Text('Cancel'),
-                              ),
-                              TextButton(
-                                onPressed: () => Navigator.pop(context, 'OK'),
-                                child: const Text('OK'),
-                              ),
-                            ],
-                          ),
-                        );
+                        ShowDilog(context);
                       },
                       child: Center(
                         child: Container(
@@ -174,6 +102,146 @@ class ContactScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  void ShowDilog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        contentPadding: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(32.0))),
+        content: Container(
+          margin: EdgeInsets.only(top: 50.w),
+          child: Column(
+            children: [
+              RowText(title: ' طلب رقم', content: "152421"),
+              RowText(title: ' تاريخ التوصيل', content: '2021 / 05 / 18'),
+              RowText(title: ' الميعاد', content: '05 : 30 PM'),
+              RowText(title: ' إسم العميل', content: 'عبد الله فرج'),
+              RowText(title: 'عنوان العميل', content: '+966 5441 7114'),
+              SizedBox(
+                height: 50.h,
+              ),
+              Container(
+                padding: EdgeInsets.fromLTRB(24.0, 0, 24.0, 0),
+                child: Text(
+                  'عنوان العميل',
+                  style: TextStyle(
+                      color: Color(0xff80392C),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 60.sp),
+                ),
+              ),
+              Container(
+                height: .4.sh,
+                width: 1.sw,
+                child: Image.asset(
+                  'assets/images/Group 8218.png',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              SizedBox(
+                height: 50.h,
+              ),
+              Spacer(),
+              Container(
+                padding: EdgeInsets.fromLTRB(24.0, 0, 24.0, 24),
+                child: Row(
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Color(0xffB09B87)),
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.white,
+                          ),
+                          height: .065.sh,
+                          width: .3.sw,
+                          child: Center(
+                              child: Text(
+                            'تجاهل',
+                            style: TextStyle(color: Color(0xffB09B87)),
+                          )),
+                        ),
+                      ),
+                    ),
+                    Spacer(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Center(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0xffB09B87),
+                          ),
+                          height: .065.sh,
+                          width: .3.sw,
+                          child: Center(
+                              child: Text(
+                            'إستلام',
+                            style: TextStyle(color: Colors.white),
+                          )),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Container RowText({required String content, required String title}) {
+    return Container(
+      padding: EdgeInsets.fromLTRB(24.0, 0, 24.0, 0),
+      child: Row(
+        //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            width: 350.w,
+            alignment: Alignment.center,
+            child: Text(
+              content,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Color(0xffB9B9B9), fontWeight: FontWeight.bold),
+            ),
+          ),
+          Spacer(),
+          Container(
+            child: Text(
+              " : ",
+              style: TextStyle(
+                  color: Color(0xff80392C),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 60.sp),
+              textAlign: TextAlign.end,
+            ),
+          ),
+          Container(
+            width: 310.w,
+            child: Text(
+              title,
+              style: TextStyle(
+                  color: Color(0xff80392C),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 60.sp),
+              textAlign: TextAlign.end,
+            ),
+          ),
+        ],
       ),
     );
   }
