@@ -56,7 +56,7 @@ class DeliveryScreen extends StatelessWidget {
   Widget HasDeliveredBuild() {
     return Center(
         child: Container(
-      height: .15.sh,
+      height: .11.sh,
       child: Card(
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Color(0xffB09B87), width: .5),
@@ -138,7 +138,7 @@ class DeliveryScreen extends StatelessWidget {
             MaterialPageRoute(builder: (context) => DetailsProduct_Screen()));
       },
       child: Container(
-        height: .2.sh,
+        height: .13.sh,
         child: Card(
           elevation: 10,
           shape: RoundedRectangleBorder(
