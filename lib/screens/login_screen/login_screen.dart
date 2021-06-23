@@ -1,6 +1,6 @@
-// import 'package:backyard/widgets/navigation_bar.dart';
+// import 'package:backyard/widgets/layout_screen.dart';
+import 'package:backyard_delivery/layout/layout_screen.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
-import 'package:backyard_delivery/shared/widgets/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
