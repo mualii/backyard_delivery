@@ -1,3 +1,5 @@
+import 'package:backyard_delivery/screens/previous_orders_screen/previous_orders_screen.dart';
+import 'package:backyard_delivery/screens/terms_screen/terms_screen.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:flutter/material.dart';
@@ -34,13 +36,17 @@ class SettingsScreen extends StatelessWidget {
                       context: context,
                       title: 'My previous orders',
                       image: 'assets/images/back button.png',
-                      Ontap: () {},
+                      Ontap: () {
+                        navigateTo(context, PreviousOrdersScreen());
+                      },
                     ),
                     DefaultItemButton(
                       context: context,
                       title: 'Terms and Conditions',
                       image: 'assets/images/back button.png',
-                      Ontap: () {},
+                      Ontap: () {
+                        navigateTo(context, TermsScreen());
+                      },
                     ),
                     DefaultItemButton(
                       context: context,

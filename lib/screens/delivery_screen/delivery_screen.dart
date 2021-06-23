@@ -56,10 +56,9 @@ class DeliveryScreen extends StatelessWidget {
         child: Container(
       height: .1.sh,
       child: Card(
-        elevation: 3,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Color(0xffB09B87), width: .5),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -133,10 +132,10 @@ class DeliveryScreen extends StatelessWidget {
     return Container(
       height: .129.sh,
       child: Card(
-        elevation: 3,
+        elevation: 010,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Color(0xffB09B87), width: .5),
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
