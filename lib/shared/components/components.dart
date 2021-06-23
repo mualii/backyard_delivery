@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Widget defaultTextButton(
-        {required VoidCallback function, required String title}) =>
+        {required VoidCallback function,
+        required String title,
+        double? size = 20}) =>
     TextButton(
         onPressed: function,
         child: Text(
           title.toUpperCase(),
+          style: TextStyle(fontSize: size!),
         ));
 
 Widget defaultFormField({
@@ -14,16 +17,19 @@ Widget defaultFormField({
   required TextInputType type,
   Function(String)? onSubmit,
   Function(String)? onChange,
+  String? hint,
+  int? maxLines,
   VoidCallback? onTap,
   bool isPassword = false,
   String? Function(String?)? validate,
-  required String label,
-  required IconData prefix,
+  String? label,
+  IconData? prefix,
   IconData? suffix,
   VoidCallback? suffixPressed,
   bool isClickable = true,
 }) =>
     TextFormField(
+      maxLines: maxLines,
       controller: controller,
       keyboardType: type,
       obscureText: isPassword,
@@ -32,7 +38,12 @@ Widget defaultFormField({
       onChanged: onChange,
       onTap: onTap,
       validator: validate,
+      textAlign: TextAlign.right,
       decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: TextStyle(
+          fontSize: 10,
+        ),
         labelText: label,
         prefixIcon: Icon(
           prefix,
@@ -45,7 +56,7 @@ Widget defaultFormField({
                 ),
               )
             : null,
-        border: OutlineInputBorder(),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
       ),
     );
 

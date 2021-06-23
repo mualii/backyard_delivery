@@ -1,3 +1,4 @@
+import 'package:backyard_delivery/screens/contact_screen/contant_screen.dart';
 import 'package:backyard_delivery/screens/previous_orders_screen/previous_orders_screen.dart';
 import 'package:backyard_delivery/screens/terms_screen/terms_screen.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
@@ -52,7 +53,9 @@ class SettingsScreen extends StatelessWidget {
                       context: context,
                       title: 'CONTACT',
                       image: 'assets/images/back button.png',
-                      Ontap: () {},
+                      Ontap: () {
+                        navigateTo(context, ContactScreen());
+                      },
                     ),
                     DefaultItemButton(
                       context: context,
