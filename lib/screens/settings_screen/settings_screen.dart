@@ -4,6 +4,7 @@ import 'package:backyard_delivery/screens/terms_screen/terms_screen.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:backyard_delivery/shared/widgets/search_text_field.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -63,7 +64,12 @@ class SettingsScreen extends StatelessWidget {
                       context: context,
                       title: 'language',
                       image: 'assets/images/back button.png',
-                      Ontap: () {},
+                      Ontap: () {
+                        showCupertinoModalPopup(
+                            context: context,
+                            builder: (BuildContext context) =>
+                                changeLanguage(context));
+                      },
                     ),
                     Spacer(),
                     Align(
@@ -75,6 +81,51 @@ class SettingsScreen extends StatelessWidget {
                 ),
               )),
         ),
+      ),
+    );
+  }
+
+  Widget changeLanguage(context) {
+    return CupertinoActionSheet(
+      title: Text('Language'),
+      message: Column(
+        children: [
+          Text('Choose your language'),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CupertinoActionSheetAction(
+                child: Column(
+                  children: [
+                    Image.asset("assets/images/united-kingdom.png"),
+                    Text('English'),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+              CupertinoActionSheetAction(
+                child: Column(
+                  children: [
+                    Image.asset("assets/images/saudi-arabia.png"),
+                    Text('Arabic'),
+                  ],
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          )
+        ],
+      ),
+      cancelButton: CupertinoActionSheetAction(
+        child: Text('cancel'),
+        isDefaultAction: true,
+        onPressed: () {
+          Navigator.pop(context, 'Cancel');
+        },
       ),
     );
   }
