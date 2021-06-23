@@ -75,7 +75,79 @@ class ContactScreen extends StatelessWidget {
                     SizedBox(height: .05.sh),
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).pop();
+                        showDialog(
+                          context: context,
+                          builder: (context) => AlertDialog(
+                            content: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('152421'),
+                                    Text(':'),
+                                    Text('طلب رقم'),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('2021 / 05 / 18'),
+                                    Text(':'),
+                                    Text('تاريخ التوصيل'),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('05 : 30 PM'),
+                                    Text(':'),
+                                    Text('الميعاد'),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('عبد الله فرج'),
+                                    Text(':'),
+                                    Text('إسم العميل'),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text('+966 5441 7114'),
+                                    Text(':'),
+                                    Text('الجوال'),
+                                  ],
+                                ),
+                                Text('عنوان العميل'),
+                                Container(
+                                  height: .3.sh,
+                                  width: double.infinity,
+                                  child: Image.asset(
+                                    'assets/images/Group 8218.png',
+                                  ),
+                                ),
+                              ],
+                            ),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () =>
+                                    Navigator.pop(context, 'Cancel'),
+                                child: const Text('Cancel'),
+                              ),
+                              TextButton(
+                                onPressed: () => Navigator.pop(context, 'OK'),
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          ),
+                        );
                       },
                       child: Center(
                         child: Container(
