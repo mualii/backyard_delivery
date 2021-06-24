@@ -23,66 +23,69 @@ class SettingsScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Color(0xffB09B87),
         appBar: customisedAppBar(context, false),
-        body: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+        body: SingleChildScrollView(
+          child: Container(
+            height: .769.sh,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+            ),
+            child: Padding(
+                padding: EdgeInsets.symmetric(
+                    vertical: 0.03.sh, horizontal: 0.03.sw),
+                child: Center(
+                  child: Column(
+                    children: [
+                      SearchTextField(),
+                      SizedBox(
+                        height: 90.h,
+                      ),
+                      DefaultItemButton(
+                        context: context,
+                        title: 'My previous orders',
+                        image: 'assets/images/back button.png',
+                        Ontap: () {
+                          navigateTo(context, PreviousOrdersScreen());
+                        },
+                      ),
+                      DefaultItemButton(
+                        context: context,
+                        title: 'Terms and Conditions',
+                        image: 'assets/images/back button.png',
+                        Ontap: () {
+                          navigateTo(context, TermsScreen());
+                        },
+                      ),
+                      DefaultItemButton(
+                        context: context,
+                        title: 'CONTACT',
+                        image: 'assets/images/back button.png',
+                        Ontap: () {
+                          navigateTo(context, ContactScreen());
+                        },
+                      ),
+                      DefaultItemButton(
+                        context: context,
+                        title: 'language',
+                        image: 'assets/images/back button.png',
+                        Ontap: () {
+                          showCupertinoModalPopup(
+                              context: context,
+                              builder: (BuildContext context) =>
+                                  changeLanguage(context));
+                        },
+                      ),
+                      Spacer(),
+                      Align(
+                        child: defaultTextButton(
+                            function: () {}, title: 'LOG OUT'),
+                        alignment: Alignment.bottomRight,
+                      ),
+                    ],
+                  ),
+                )),
           ),
-          child: Padding(
-              padding:
-                  EdgeInsets.symmetric(vertical: 0.03.sh, horizontal: 0.03.sw),
-              child: Center(
-                child: Column(
-                  children: [
-                    SearchTextField(),
-                    SizedBox(
-                      height: 90.h,
-                    ),
-                    DefaultItemButton(
-                      context: context,
-                      title: 'My previous orders',
-                      image: 'assets/images/back button.png',
-                      Ontap: () {
-                        navigateTo(context, PreviousOrdersScreen());
-                      },
-                    ),
-                    DefaultItemButton(
-                      context: context,
-                      title: 'Terms and Conditions',
-                      image: 'assets/images/back button.png',
-                      Ontap: () {
-                        navigateTo(context, TermsScreen());
-                      },
-                    ),
-                    DefaultItemButton(
-                      context: context,
-                      title: 'CONTACT',
-                      image: 'assets/images/back button.png',
-                      Ontap: () {
-                        navigateTo(context, ContactScreen());
-                      },
-                    ),
-                    DefaultItemButton(
-                      context: context,
-                      title: 'language',
-                      image: 'assets/images/back button.png',
-                      Ontap: () {
-                        showCupertinoModalPopup(
-                            context: context,
-                            builder: (BuildContext context) =>
-                                changeLanguage(context));
-                      },
-                    ),
-                    Spacer(),
-                    Align(
-                      child:
-                          defaultTextButton(function: () {}, title: 'LOG OUT'),
-                      alignment: Alignment.bottomRight,
-                    ),
-                  ],
-                ),
-              )),
         ),
       ),
     );
