@@ -36,6 +36,9 @@ class SettingsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     SearchTextField(),
+                    SizedBox(
+                      height: 90.h,
+                    ),
                     DefaultItemButton(
                       context: context,
                       title: 'My previous orders',

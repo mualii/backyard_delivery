@@ -26,7 +26,10 @@ class PreviousOrdersScreen extends StatelessWidget {
                 EdgeInsets.symmetric(vertical: 0.03.sh, horizontal: 0.03.sw),
             child: ListView.separated(
               itemBuilder: (context, index) => HasDeliveredBuild(),
-              separatorBuilder: (context, index) => Divider(),
+              separatorBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Divider(),
+              ),
               itemCount: 20,
             ),
           ),
@@ -38,7 +41,7 @@ class PreviousOrdersScreen extends StatelessWidget {
   Widget HasDeliveredBuild() {
     return Center(
         child: Container(
-      height: .15.sh,
+      height: .13.sh,
       child: Card(
         elevation: 10,
         shape: RoundedRectangleBorder(
@@ -56,11 +59,11 @@ class PreviousOrdersScreen extends StatelessWidget {
                 children: [
                   Text(
                     'تم التوصيل',
-                    style: TextStyle(fontSize: 40.sp, color: Color(0xff80392C)),
+                    style: TextStyle(fontSize: 60.sp, color: Color(0xff80392C)),
                   ),
                   Text(
                     '05 : 30 PM',
-                    style: TextStyle(fontSize: 40.sp, color: Colors.grey[400]),
+                    style: TextStyle(fontSize: 50.sp, color: Colors.grey[400]),
                   ),
                 ],
               ),
@@ -74,12 +77,12 @@ class PreviousOrdersScreen extends StatelessWidget {
                       Text(
                         '59585',
                         style:
-                            TextStyle(fontSize: 40.sp, color: Colors.grey[400]),
+                            TextStyle(fontSize: 60.sp, color: Colors.grey[400]),
                       ),
                       Text(
                         '    :  طلب رقم     ',
                         style: TextStyle(
-                            color: Color(0xff80392C), fontSize: 40.sp),
+                            color: Color(0xff80392C), fontSize: 60.sp),
                       ),
                     ],
                   ),
@@ -88,12 +91,12 @@ class PreviousOrdersScreen extends StatelessWidget {
                       Text(
                         ' عبدالله فرج',
                         style:
-                            TextStyle(fontSize: 40.sp, color: Colors.grey[400]),
+                            TextStyle(fontSize: 60.sp, color: Colors.grey[400]),
                       ),
                       Text(
                         ' :  إسم العميل    ',
                         style: TextStyle(
-                            color: Color(0xff80392C), fontSize: 40.sp),
+                            color: Color(0xff80392C), fontSize: 60.sp),
                       ),
                     ],
                   ),

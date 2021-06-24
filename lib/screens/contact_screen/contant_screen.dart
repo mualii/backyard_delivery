@@ -1,4 +1,3 @@
-import 'package:backyard_delivery/shared/components/components.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -37,41 +36,63 @@ class ContactScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
-                    Text(
-                      'البريد الإلكتروني',
-                      textAlign: TextAlign.right,
-                      style:
-                          TextStyle(fontSize: 40.sp, color: Color(0xffB09B87)),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: .68.sw,
+                        ),
+                        Text(
+                          'البريد الإلكتروني',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              fontSize: 45.sp, color: Color(0xff80392C)),
+                        ),
+                      ],
                     ),
-                    defaultFormField(
+                    ContantCartFormField(
                       controller: emailController,
                       type: TextInputType.emailAddress,
-                      label: 'البريد الإلكتروني',
-                      // hint: 'البريد الإلكتروني',
+                      hint: 'البريد الإلكتروني',
+                      maxLines: 1,
                     ),
-                    Text(
-                      'المحتوي',
-                      textAlign: TextAlign.right,
-                      style:
-                          TextStyle(fontSize: 40.sp, color: Color(0xffB09B87)),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: .8.sw,
+                        ),
+                        Text(
+                          'المحتوي',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              fontSize: 45.sp, color: Color(0xff80392C)),
+                        ),
+                      ],
                     ),
-                    defaultFormField(
+                    ContantCartFormField(
                       controller: titleController,
                       type: TextInputType.text,
-                      label: 'المحتوي',
-                      // hint: 'البريد الإلكتروني',
+                      hint: 'المحتوي',
+                      maxLines: 1,
                     ),
-                    Text(
-                      'الرسالة',
-                      textAlign: TextAlign.right,
-                      style:
-                          TextStyle(fontSize: 40.sp, color: Color(0xffB09B87)),
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: .8.sw,
+                        ),
+                        Text(
+                          'الرسالة',
+                          textAlign: TextAlign.right,
+                          style: TextStyle(
+                              fontSize: 45.sp, color: Color(0xff80392C)),
+                        ),
+                      ],
                     ),
-                    defaultFormField(
-                        controller: massController,
-                        type: TextInputType.text,
-                        hint: 'الرجاء الكتابة هنا',
-                        maxLines: 6),
+                    ContantCartFormField(
+                      controller: massController,
+                      type: TextInputType.text,
+                      maxLines: 6,
+                      hint: 'الرجاء الكتابة هنا',
+                    ),
                     SizedBox(height: .05.sh),
                     InkWell(
                       onTap: () {
@@ -104,6 +125,36 @@ class ContactScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Widget ContantCartFormField({
+    required TextEditingController controller,
+    required TextInputType type,
+    String? hint,
+    int? maxLines,
+  }) {
+    return Card(
+        color: Colors.grey[300],
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(16.0),
+          ),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          child: TextFormField(
+              maxLines: maxLines,
+              controller: controller,
+              keyboardType: type,
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: hint,
+                hintTextDirection: TextDirection.rtl,
+                hintStyle: TextStyle(
+                  fontSize: 15,
+                ),
+              )),
+        ));
   }
 
   void ShowDilog(BuildContext context) {
@@ -203,9 +254,9 @@ class ContactScreen extends StatelessWidget {
     );
   }
 
-  Container RowText({required String content, required String title}) {
+  Widget RowText({required String content, required String title}) {
     return Container(
-      padding: EdgeInsets.fromLTRB(24.0, 0, 24.0, 0),
+      padding: EdgeInsets.fromLTRB(18.0, 0, 18, 0),
       child: Row(
         //  mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

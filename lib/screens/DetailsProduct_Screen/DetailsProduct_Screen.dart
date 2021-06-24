@@ -2,7 +2,7 @@ import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class DetailsProduct_Screen extends StatelessWidget {
+class DetailsProductScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -115,8 +115,19 @@ class DetailsProduct_Screen extends StatelessWidget {
                   ),
                 ),
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0.03.sw),
+                child: Text(
+                  'معلومات الحساب',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontSize: 60.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xff80392C)),
+                ),
+              ),
               Container(
-                margin: EdgeInsets.only(top: 50.h, bottom: 50.h),
+                margin: EdgeInsets.only(top: 20.h, bottom: 20.h),
                 child: Stack(
                   alignment: AlignmentDirectional.center,
                   children: [

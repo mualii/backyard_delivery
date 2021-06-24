@@ -1,4 +1,5 @@
 import 'package:backyard_delivery/screens/DetailsProduct_Screen/DetailsProduct_Screen.dart';
+import 'package:backyard_delivery/shared/components/components.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,8 +57,9 @@ class DeliveryScreen extends StatelessWidget {
   Widget HasDeliveredBuild() {
     return Center(
         child: Container(
-      height: .11.sh,
+      height: .12.sh,
       child: Card(
+        elevation: 10,
         shape: RoundedRectangleBorder(
           side: BorderSide(color: Color(0xffB09B87), width: .5),
           borderRadius: BorderRadius.circular(20),
@@ -73,14 +75,14 @@ class DeliveryScreen extends StatelessWidget {
                 children: [
                   Text(
                     'تم التوصيل',
-                    style: TextStyle(fontSize: 40.sp, color: Color(0xff80392C)),
+                    style: TextStyle(fontSize: 55.sp, color: Color(0xff80392C)),
                   ),
                   Opacity(
                     opacity: .4,
                     child: Text(
                       '05 : 30 PM',
                       style:
-                          TextStyle(fontSize: 40.sp, color: Colors.grey[400]),
+                          TextStyle(fontSize: 50.sp, color: Colors.grey[400]),
                     ),
                   ),
                 ],
@@ -97,12 +99,12 @@ class DeliveryScreen extends StatelessWidget {
                         Text(
                           '59585',
                           style: TextStyle(
-                              fontSize: 40.sp, color: Colors.grey[400]),
+                              fontSize: 55.sp, color: Colors.grey[400]),
                         ),
                         Text(
                           '    :  طلب رقم     ',
                           style: TextStyle(
-                              color: Color(0xff80392C), fontSize: 40.sp),
+                              color: Color(0xff80392C), fontSize: 55.sp),
                         ),
                       ],
                     ),
@@ -111,12 +113,12 @@ class DeliveryScreen extends StatelessWidget {
                         Text(
                           ' عبدالله فرج',
                           style: TextStyle(
-                              fontSize: 40.sp, color: Colors.grey[400]),
+                              fontSize: 55.sp, color: Colors.grey[400]),
                         ),
                         Text(
                           ' :  إسم العميل    ',
                           style: TextStyle(
-                              color: Color(0xff80392C), fontSize: 40.sp),
+                              color: Color(0xff80392C), fontSize: 55.sp),
                         ),
                       ],
                     ),
@@ -134,11 +136,10 @@ class DeliveryScreen extends StatelessWidget {
       {required int index, required BuildContext context}) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(builder: (context) => DetailsProduct_Screen()));
+        navigateTo(context, DetailsProductScreen());
       },
       child: Container(
-        height: .13.sh,
+        height: .167.sh,
         child: Card(
           elevation: 10,
           shape: RoundedRectangleBorder(
@@ -152,11 +153,13 @@ class DeliveryScreen extends StatelessWidget {
               children: [
                 Column(
                   children: [
-                    Spacer(),
+                    SizedBox(
+                      height: .1.sh,
+                    ),
                     Text(
                       '05 : 30 PM',
                       style:
-                          TextStyle(fontSize: 40.sp, color: Colors.grey[400]),
+                          TextStyle(fontSize: 50.sp, color: Colors.grey[400]),
                     ),
                   ],
                 ),
@@ -170,12 +173,12 @@ class DeliveryScreen extends StatelessWidget {
                         Text(
                           '59585',
                           style: TextStyle(
-                              fontSize: 40.sp, color: Colors.grey[400]),
+                              fontSize: 55.sp, color: Colors.grey[400]),
                         ),
                         Text(
                           '    :  طلب رقم     ',
                           style: TextStyle(
-                              color: Color(0xff80392C), fontSize: 40.sp),
+                              color: Color(0xff80392C), fontSize: 55.sp),
                         ),
                       ],
                     ),
@@ -184,12 +187,12 @@ class DeliveryScreen extends StatelessWidget {
                         Text(
                           ' عبدالله فرج',
                           style: TextStyle(
-                              fontSize: 40.sp, color: Colors.grey[400]),
+                              fontSize: 55.sp, color: Colors.grey[400]),
                         ),
                         Text(
                           ' :  إسم العميل    ',
                           style: TextStyle(
-                              color: Color(0xff80392C), fontSize: 40.sp),
+                              color: Color(0xff80392C), fontSize: 55.sp),
                         ),
                       ],
                     ),
@@ -198,12 +201,12 @@ class DeliveryScreen extends StatelessWidget {
                         Text(
                           '966 0214 588 +',
                           style: TextStyle(
-                              fontSize: 40.sp, color: Colors.grey[400]),
+                              fontSize: 55.sp, color: Colors.grey[400]),
                         ),
                         Text(
                           '    :  الجوال     ',
                           style: TextStyle(
-                              color: Color(0xff80392C), fontSize: 40.sp),
+                              color: Color(0xff80392C), fontSize: 55.sp),
                         ),
                       ],
                     ),
