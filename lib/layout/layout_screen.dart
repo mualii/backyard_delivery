@@ -28,8 +28,8 @@ class _NavigationBarState extends State<NavigationBar>
   ];
 
   List<Widget> _screens = [
-    DeliveryScreen(),
     NotificationsScreen(),
+    DeliveryScreen(),
     SettingsScreen(),
   ];
 

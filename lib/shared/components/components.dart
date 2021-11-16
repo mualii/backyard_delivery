@@ -15,6 +15,7 @@ Widget defaultTextButton(
 Widget defaultFormField({
   required TextEditingController controller,
   required TextInputType type,
+  bool? checker,
   Function(String)? onSubmit,
   Function(String)? onChange,
   String? hint,
@@ -29,6 +30,7 @@ Widget defaultFormField({
   bool isClickable = true,
 }) =>
     TextFormField(
+
       maxLines: maxLines,
       controller: controller,
       keyboardType: type,
@@ -37,9 +39,11 @@ Widget defaultFormField({
       onFieldSubmitted: onSubmit,
       onChanged: onChange,
       onTap: onTap,
+
       validator: validate,
-      textAlign: TextAlign.right,
+      textAlign: TextAlign.start,
       decoration: InputDecoration(
+
         hintText: hint,
         hintStyle: TextStyle(
           fontSize: 10,
@@ -56,7 +60,9 @@ Widget defaultFormField({
                 ),
               )
             : null,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)) ,
+        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide:checker==false? BorderSide(width: 0): BorderSide(width:1,color: Colors.red)),
+
       ),
     );
 

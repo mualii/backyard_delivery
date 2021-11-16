@@ -1,17 +1,28 @@
 import 'package:backyard_delivery/screens/contact_screen/contant_screen.dart';
+import 'package:backyard_delivery/screens/login_screen/login_screen.dart';
 import 'package:backyard_delivery/screens/previous_orders_screen/previous_orders_screen.dart';
 import 'package:backyard_delivery/screens/terms_screen/terms_screen.dart';
+import 'package:backyard_delivery/services/localstroage.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:backyard_delivery/shared/widgets/search_text_field.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
-
+goEnglish(BuildContext context){
+  LocalStorage.saveData(key: "Lang", value: "en");
+  context.locale = Locale('en', 'US');
+  Navigator.of(context).pop();
+}
+goArabic(BuildContext context){
+  LocalStorage.saveData(key: "Lang", value: "ar");
+  context.locale = Locale('ar', 'AR');
+  Navigator.of(context).pop();
+}
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -37,13 +48,13 @@ class SettingsScreen extends StatelessWidget {
                 child: Center(
                   child: Column(
                     children: [
-                      SearchTextField(),
+
                       SizedBox(
                         height: 90.h,
                       ),
                       DefaultItemButton(
                         context: context,
-                        title: 'My previous orders',
+                        title: 'My previous orders'.tr(),
                         image: 'assets/images/back button.png',
                         Ontap: () {
                           navigateTo(context, PreviousOrdersScreen());
@@ -51,7 +62,7 @@ class SettingsScreen extends StatelessWidget {
                       ),
                       DefaultItemButton(
                         context: context,
-                        title: 'Terms and Conditions',
+                        title: 'Terms and Conditions'.tr(),
                         image: 'assets/images/back button.png',
                         Ontap: () {
                           navigateTo(context, TermsScreen());
@@ -59,15 +70,16 @@ class SettingsScreen extends StatelessWidget {
                       ),
                       DefaultItemButton(
                         context: context,
-                        title: 'CONTACT',
+                        title: 'CONTACT'.tr(),
                         image: 'assets/images/back button.png',
                         Ontap: () {
+
                           navigateTo(context, ContactScreen());
                         },
                       ),
                       DefaultItemButton(
                         context: context,
-                        title: 'language',
+                        title: 'language'.tr(),
                         image: 'assets/images/back button.png',
                         Ontap: () {
                           showCupertinoModalPopup(
@@ -79,7 +91,8 @@ class SettingsScreen extends StatelessWidget {
                       Spacer(),
                       Align(
                         child: defaultTextButton(
-                            function: () {}, title: 'LOG OUT'),
+                            function: () {LocalStorage.removeData(key: "deviceToken");
+                            navigateAndFinish(context,LoginScreen());}, title: 'LOG OUT'.tr()),
                         alignment: Alignment.bottomRight,
                       ),
                     ],
@@ -93,10 +106,10 @@ class SettingsScreen extends StatelessWidget {
 
   Widget changeLanguage(context) {
     return CupertinoActionSheet(
-      title: Text('Language'),
+      title: Text('Language'.tr()),
       message: Column(
         children: [
-          Text('Choose your language'),
+          Text('Choose your language'.tr()),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -104,22 +117,25 @@ class SettingsScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     Image.asset("assets/images/united-kingdom.png"),
-                    Text('English'),
+                    Text('English'.tr()),
                   ],
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop();
+              goEnglish(context);
                 },
               ),
               CupertinoActionSheetAction(
+
+
                 child: Column(
                   children: [
                     Image.asset("assets/images/saudi-arabia.png"),
-                    Text('Arabic'),
+                    Text('Arabic'.tr()),
                   ],
                 ),
                 onPressed: () {
-                  Navigator.of(context).pop();
+
+                  goArabic(context);
                 },
               ),
             ],
@@ -127,7 +143,7 @@ class SettingsScreen extends StatelessWidget {
         ],
       ),
       cancelButton: CupertinoActionSheetAction(
-        child: Text('cancel'),
+        child: Text('cancel'.tr()),
         isDefaultAction: true,
         onPressed: () {
           Navigator.pop(context, 'Cancel');

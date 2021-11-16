@@ -1,6 +1,10 @@
+import 'package:backyard_delivery/cubits/termsAndConditions/termsAndConditonsCubit.dart';
+import 'package:backyard_delivery/cubits/termsAndConditions/termsAndConditonsState.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class TermsScreen extends StatelessWidget {
@@ -21,16 +25,21 @@ class TermsScreen extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30)),
           ),
-          child: Padding(
-            padding:
-                EdgeInsets.symmetric(vertical: 0.03.sh, horizontal: 0.03.sw),
-            child: Center(
-              child: Text(
-                'Terms and Conditions',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 60.sp, color: Color(0xffB09B87)),
+          child: BlocConsumer<TermsAndConditonsCubit,TermsAndConditonsState>(
+            listener: (context,state){},
+            builder:(context,state)=> state is TermsAndConditonsLoaded? SingleChildScrollView(
+              child: Padding(
+                padding:
+                    EdgeInsets.symmetric(vertical: 0.03.sh, horizontal: 0.03.sw),
+                child: Center(
+                  child: Html(
+data:
+                  state.terms!,
+
+                  ),
+                ),
               ),
-            ),
+            ):Center(child: CircularProgressIndicator()),
           ),
         ),
       ),

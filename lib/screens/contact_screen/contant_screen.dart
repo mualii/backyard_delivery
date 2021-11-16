@@ -1,12 +1,46 @@
+import 'package:backyard_delivery/services/diohelper.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ContactScreen extends StatelessWidget {
+
+class ContactScreen extends StatefulWidget{
+  @override
+  State<StatefulWidget> createState() {
+    return ContactScreenState();
+  }
+}
+
+
+
+class ContactScreenState extends State<ContactScreen> {
   var emailController = TextEditingController();
   var titleController = TextEditingController();
   var massController = TextEditingController();
+  bool emailChecker=false,titleChecker=false,massageChcker=false;
+  checkEmpty(){
+    if(emailController.text=="")
+      setState(() {
+        emailChecker=true;
+      });
+    else emailChecker=false;
+    if(titleController.text=="")
+      setState(() {
+       titleChecker=true;
+      });
+    else titleChecker=false;
+    if(massController.text=="")
+      setState(() {
+        massageChcker=true;
+      });    else massageChcker=false;
+    if(emailChecker==false && massageChcker==false && titleChecker==false)
+      DioHelper.postData(endpoint: "/api/messages/send", formData: {"from":emailController.text,"subject":titleController.text,"body":massController.text},context: context).then((value) {
+
+          Navigator.of(context).pop();
+      });
+  }
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -34,69 +68,85 @@ class ContactScreen extends StatelessWidget {
               width: double.infinity,
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.end,
+
+                 crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+
                       children: [
-                        SizedBox(
-                          width: .68.sw,
-                        ),
+
                         Text(
-                          'البريد الإلكتروني',
-                          textAlign: TextAlign.right,
+                          'Email Address'.tr(),
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 45.sp, color: Color(0xff80392C)),
                         ),
                       ],
                     ),
-                    ContantCartFormField(
-                      controller: emailController,
-                      type: TextInputType.emailAddress,
-                      hint: 'البريد الإلكتروني',
-                      maxLines: 1,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ContantCartFormField(
+                          checker: emailChecker,
+                          controller: emailController,
+                          type: TextInputType.emailAddress,
+                          hint: 'Email Address'.tr(),
+                          maxLines: 1,
+                        ),
+                      emailChecker==false?Container():  Text("Please enter email".tr(),style: TextStyle(color: Colors.red),)
+                      ],
                     ),
                     Row(
                       children: [
-                        SizedBox(
-                          width: .8.sw,
-                        ),
+
                         Text(
-                          'المحتوي',
-                          textAlign: TextAlign.right,
+                          'subject'.tr(),
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 45.sp, color: Color(0xff80392C)),
                         ),
                       ],
                     ),
-                    ContantCartFormField(
-                      controller: titleController,
-                      type: TextInputType.text,
-                      hint: 'المحتوي',
-                      maxLines: 1,
+                    Column(crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ContantCartFormField(
+                           checker: titleChecker,
+                          controller: titleController,
+                          type: TextInputType.text,
+                          hint: 'subject'.tr(),
+                          maxLines: 1,
+                        ),
+                        emailChecker==false?Container():  Text("Please enter subject".tr(),style: TextStyle(color: Colors.red),)
+                      ],
                     ),
                     Row(
                       children: [
-                        SizedBox(
-                          width: .8.sw,
-                        ),
+
                         Text(
-                          'الرسالة',
-                          textAlign: TextAlign.right,
+                          'Message'.tr(),
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                               fontSize: 45.sp, color: Color(0xff80392C)),
                         ),
                       ],
                     ),
-                    ContantCartFormField(
-                      controller: massController,
-                      type: TextInputType.text,
-                      maxLines: 6,
-                      hint: 'الرجاء الكتابة هنا',
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        ContantCartFormField(checker: massageChcker,
+                          controller: massController,
+                          type: TextInputType.text,
+                          maxLines: 6,
+                          hint: 'Write here'.tr(),
+                        ),
+                        emailChecker==false?Container():  Text("Please enter message".tr(),style: TextStyle(color: Colors.red),)
+                      ],
+
                     ),
                     SizedBox(height: .05.sh),
                     InkWell(
                       onTap: () {
-                        ShowDilog(context);
+                       checkEmpty();
                       },
                       child: Center(
                         child: Container(
@@ -108,7 +158,7 @@ class ContactScreen extends StatelessWidget {
                           width: .39.sw,
                           child: Center(
                               child: Text(
-                            'إرسال',
+                            'send'.tr(),
                             style: TextStyle(color: Colors.white),
                           )),
                         ),
@@ -131,12 +181,16 @@ class ContactScreen extends StatelessWidget {
     required TextEditingController controller,
     required TextInputType type,
     String? hint,
+    bool? checker,
     int? maxLines,
   }) {
     return Card(
         color: Colors.grey[300],
+
         shape: RoundedRectangleBorder(
+             side:checker==true? BorderSide(width: 1,color:  Colors.red):BorderSide(width: 0),
           borderRadius: BorderRadius.all(
+
             Radius.circular(16.0),
           ),
         ),
@@ -149,7 +203,7 @@ class ContactScreen extends StatelessWidget {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: hint,
-                hintTextDirection: TextDirection.rtl,
+
                 hintStyle: TextStyle(
                   fontSize: 15,
                 ),

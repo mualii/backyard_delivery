@@ -1,7 +1,9 @@
 import 'dart:async';
 
 import 'package:after_layout/after_layout.dart';
+import 'package:backyard_delivery/layout/layout_screen.dart';
 import 'package:backyard_delivery/screens/login_screen/login_screen.dart';
+import 'package:backyard_delivery/services/localstroage.dart';
 import 'package:flutter/material.dart';
 //import 'login_screen.dart';
 
@@ -15,13 +17,19 @@ class _SplashScreenState extends State<SplashScreen>
   checkFirstSeen() {
     Timer(Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => LoginScreen()));
+          MaterialPageRoute(builder: (context) => LocalStorage.getData(key: "deviceToken")==null ?LoginScreen():NavigationBar()));
     });
   }
 
   @override
   void afterFirstLayout(BuildContext context) => checkFirstSeen();
+@override
+  void initState() {
 
+
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
