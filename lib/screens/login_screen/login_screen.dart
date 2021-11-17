@@ -65,7 +65,7 @@ check(){
                     height: 0.05.sh,
                   ),
                   Text(
-                    'Let\'s sign you in !',
+                    'Lets sign you in'.tr(),
                     style: TextStyle(fontSize: 50.sp, color: Color(0xff80392C)),
                   ),
                   SizedBox(

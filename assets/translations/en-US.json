@@ -1,5 +1,5 @@
 {
-  "Order nummber": "Order nummber : ",
+  "Order nummber": "Order number :",
   " Client name : ": " Client name : ",
   " phone : ": " phone : ",
   "No active orders": "No active orders",
@@ -7,7 +7,8 @@
   "Terms and Conditions": "Terms and Conditions",
 "LOG OUT": "LOG OUT",
   "CONTACT": "CONTACT",
-  "Let\\'s sign you in !": "Let\\'s sign you in !",
+  "You recived a delivery request": "You recived a delivery request",
+  "Lets sign you in": "Let\\'s sign you in !",
   "language": "language",
   "Delivery details": "Delivery details",
   "Delivery contents": "Delivery contents",

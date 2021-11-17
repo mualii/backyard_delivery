@@ -25,7 +25,7 @@ void main() async{
 
   runApp(EasyLocalization(
       path: 'assets/translations',
-      fallbackLocale:LocalStorage.getData(key: "Lang")=="en"?Locale("ar","AR"):Locale("en","US"),
+      fallbackLocale:LocalStorage.getData(key: "Lang")=="en"?Locale("en","US"):Locale("ar","AR"),
       supportedLocales: [Locale('en', 'US'), Locale('ar', 'AR')],
       child: MyApp()));
 

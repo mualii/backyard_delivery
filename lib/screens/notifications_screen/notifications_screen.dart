@@ -4,6 +4,7 @@ import 'package:backyard_delivery/cubits/notification/notification_cubit.dart';
 import 'package:backyard_delivery/cubits/notification/notification_state.dart';
 import 'package:backyard_delivery/services/localstroage.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -95,7 +96,31 @@ class NotificationsScreen extends StatelessWidget {
                                     physics: const BouncingScrollPhysics(
                                         parent: AlwaysScrollableScrollPhysics()),
                                     itemBuilder: (context, index) =>
-                                        ListTile(
+                                    NotificationCubit
+                                        .get(context)
+
+                                        .data![index]
+                                        .data!
+                                        .message!
+                                        .en
+                                        .toString()=="Your order is on the way to you" ||    NotificationCubit
+                                        .get(context)
+
+                                        .data![index]
+                                        .data!
+                                        .message!
+                                        .en
+                                        .toString()=="Order created" ||   NotificationCubit
+                                        .get(context)
+
+                                        .data![index]
+                                        .data!
+                                        .message!
+                                        .en
+                                        .toString()=="The order is pending confirmation" ?
+Container():
+
+                                    ListTile(
                                           // trailing: IconButton(icon:Icon(Icons.delete),onPressed: (){
                                           //   DioHelper.deleteDataEither(endPoint: "/api/notifications/delete/${}",formDataInput: {});
                                           // },),
@@ -103,7 +128,18 @@ class NotificationsScreen extends StatelessWidget {
                                             FontAwesomeIcons.solidDotCircle,
                                             color: Colors.orange,
                                           ),
-                                          title: Text(LocalStorage.getData(
+                                          title: Text(
+
+                                              NotificationCubit
+                                                  .get(context)
+
+                                                  .data![index]
+                                                  .data!
+                                                  .message!
+                                                  .en
+                                                  .toString()=="Your order is ready for delivery" ?"You recived a delivery request".tr()
+
+  :                                            LocalStorage.getData(
                                               key: "Lang") == "en"
                                               ? NotificationCubit
                                               .get(context)
@@ -126,18 +162,49 @@ class NotificationsScreen extends StatelessWidget {
                                           subtitle: Directionality(
                                               textDirection:
                                               TextDirection.ltr,
-                                              child: Text(
-                                                  NotificationCubit
+                                              child: Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                children: [
+                                                  Text("Order number : ${NotificationCubit
+                                                      .get(
+                                                      context)
+
+                                                      .data![index].data!.orderNumber.toString()}"),
+                                                  Text("${NotificationCubit
                                                       .get(
                                                       context)
 
                                                       .data![index]
                                                       .createdAt
                                                       .toString()
-                                                      .substring(0, 16))),
+                                                      .substring(0, 16)}"),
+                                                ],
+                                              )),
                                         ),
                                     separatorBuilder: (context, index) =>
-                                        Divider(),
+                                    NotificationCubit
+                                        .get(context)
+
+                                        .data![index]
+                                        .data!
+                                        .message!
+                                        .en
+                                        .toString()=="Your order is on the way to you" ||    NotificationCubit
+                                        .get(context)
+
+                                        .data![index]
+                                        .data!
+                                        .message!
+                                        .en
+                                        .toString()=="Order created"  ||   NotificationCubit
+                                        .get(context)
+
+                                        .data![index]
+                                        .data!
+                                        .message!
+                                        .en
+                                        .toString()=="The order is pending confirmation"  ?Container():  Divider(),
                                     itemCount: NotificationCubit
                                         .get(context)
 

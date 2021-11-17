@@ -1,3 +1,4 @@
+import 'package:backyard_delivery/cubits/deliveryHistory/deliveryHistoryCubit.dart';
 import 'package:backyard_delivery/screens/contact_screen/contant_screen.dart';
 import 'package:backyard_delivery/screens/login_screen/login_screen.dart';
 import 'package:backyard_delivery/screens/previous_orders_screen/previous_orders_screen.dart';
@@ -121,7 +122,9 @@ goArabic(BuildContext context){
                   ],
                 ),
                 onPressed: () {
+
               goEnglish(context);
+              DeliveryHistoryCubit.get(context).getHistory(context,1);
                 },
               ),
               CupertinoActionSheetAction(
@@ -136,6 +139,8 @@ goArabic(BuildContext context){
                 onPressed: () {
 
                   goArabic(context);
+                  DeliveryHistoryCubit.get(context).getHistory(context,1);
+
                 },
               ),
             ],

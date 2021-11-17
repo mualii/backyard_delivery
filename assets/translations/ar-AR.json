@@ -3,9 +3,10 @@
   " Client name : " : " إسم العميل : ",
   " phone : ": " الجوال : ",
   "Delivery details": "تفاصيل التوصيل",
-  "No active orders": " لايوجد طلبات حاليه ",
+  "No active orders": " لا يوجد طلبات حالية ",
   "My previous orders": "الطلبات السابقة",
-  "Terms and Conditions": "الشروط و الاحكام",
+  "You recived a delivery request": "لقد استلمت طلب توصيل",
+  "Terms and Conditions": "الشروط والاحكام",
   "Delivery contents": "محتويات الطلب",
   "send": "إرسال",
   "Account information": "معلومات الحساب",
@@ -15,7 +16,7 @@
   "CONTACT": "تواصل معنا",
   "Deliverd":"تم التوصيل",
   "LOG OUT": "تسجيل الخروج",
-  "Let\\'s sign you in !": "سجل الان !",
+
   "language": "اللغة",
   "Choose your language": "إختار اللغة",
   "Arabic": "العربية",
@@ -31,6 +32,7 @@
   "password": "كلمه المرور",
   "Please enter password": "إدخل كلمه المرور",
   "Go": "سجل",
+  "Lets sign you in": "! سجل الان ",
   "Invaild email or password": "برجاء التأكد من كلمه البريد او كلمه المرور",
   "Once you log in, you agree to the ": "بمجرد تسجيل الدخول انت توافق على "
 }

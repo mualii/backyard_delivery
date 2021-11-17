@@ -290,16 +290,16 @@ onMapCreated: (GoogleMapController controller) {
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 50.sp, color: Color(0xffB9B9B9)),
                 ),
-                SizedBox(///
+                SizedBox(
                   height: 50.h,
                 ),
                 InkWell(
                   onTap: () {
                     DioHelper.postData(endpoint: "/api/driver/delivery/finalize/${id}", formData: {"status":8},context: context).then((value) {
                       if(value =="1") {
+                        AvailiableDeliveryCubit.get(context).getDeliveryList(context);
                         Fluttertoast.showToast(msg: "Deliverd".tr());
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (context) => DeliveryScreen()));
+                        Navigator.pop(context);
                       }  else
                         print("error");
                     });
