@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "1015192025479",
+    "project_id": "backyard-b790b",
+    "storage_bucket": "backyard-b790b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015192025479:android:4e81f2caed04228040bb22",
+        "android_client_info": {
+          "package_name": "com.alexapps.backyard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015192025479-63eisbjpl2lclrv67evq4a5tv8j44bna.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexapps.backyard",
+            "certificate_hash": "ef31f34745438cd43db11cf253872ff1537fd842"
+          }
+        },
+        {
+          "client_id": "1015192025479-6ptmkambs3rjip5hm63j16fp0o3dp768.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexapps.backyard",
+            "certificate_hash": "9251d27a7456ba4409a255b7cd661715c742e855"
+          }
+        },
+        {
+          "client_id": "1015192025479-qceiuh8pmo5gh21bi3mnde67pr0vmq5n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alexapps.backyard",
+            "certificate_hash": "b0aa7369f5ee55cd42feef66269de73b7e70ee89"
+          }
+        },
+        {
+          "client_id": "1015192025479-h68gf171vql36k5k7os5uborv3pn5b2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdCGRE0TuW7GpRCpk4_SV_EaXcT3fpsbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015192025479-h68gf171vql36k5k7os5uborv3pn5b2f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1015192025479-nmf1ojqdge197kf08ofsgsopj2oepklv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alexapps.backyard"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015192025479:android:4b7495262c75fc9e40bb22",
+        "android_client_info": {
+          "package_name": "com.alexapps.backyard_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015192025479-h68gf171vql36k5k7os5uborv3pn5b2f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdCGRE0TuW7GpRCpk4_SV_EaXcT3fpsbY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015192025479-h68gf171vql36k5k7os5uborv3pn5b2f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1015192025479-nmf1ojqdge197kf08ofsgsopj2oepklv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.alexapps.backyard"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

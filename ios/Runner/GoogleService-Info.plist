@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1015192025479-9ru8sihkbrckk45e2jd0b4rllg0ernba.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1015192025479-9ru8sihkbrckk45e2jd0b4rllg0ernba</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>1015192025479-33vfr2pumnifcv2e7qe4mdmvf1j9uo6p.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDHIMVXH8XFygBgKoeu7bCZYIL8DbZnAPc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1015192025479</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alexapp.backyardDelivery</string>
+	<key>PROJECT_ID</key>
+	<string>backyard-b790b</string>
+	<key>STORAGE_BUCKET</key>
+	<string>backyard-b790b.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1015192025479:ios:5e6811110486144240bb22</string>
+</dict>
+</plist>
