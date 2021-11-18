@@ -47,7 +47,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   geocoding: ^2.0.1
   easy_localization: ^3.0.0
-  flutter_local_notifications: ^5.0.0+4
+  flutter_local_notifications: ^9.0.2
   firebase_messaging: ^10.0.9
 
 
