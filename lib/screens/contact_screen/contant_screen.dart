@@ -5,42 +5,53 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-class ContactScreen extends StatefulWidget{
+class ContactScreen extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return ContactScreenState();
   }
 }
 
-
-
 class ContactScreenState extends State<ContactScreen> {
   var emailController = TextEditingController();
   var titleController = TextEditingController();
   var massController = TextEditingController();
-  bool emailChecker=false,titleChecker=false,massageChcker=false;
-  checkEmpty(){
-    if(emailController.text=="")
+  bool emailChecker = false, titleChecker = false, massageChcker = false;
+  checkEmpty() {
+    if (emailController.text == "")
       setState(() {
-        emailChecker=true;
+        emailChecker = true;
       });
-    else emailChecker=false;
-    if(titleController.text=="")
+    else
+      emailChecker = false;
+    if (titleController.text == "")
       setState(() {
-       titleChecker=true;
+        titleChecker = true;
       });
-    else titleChecker=false;
-    if(massController.text=="")
+    else
+      titleChecker = false;
+    if (massController.text == "")
       setState(() {
-        massageChcker=true;
-      });    else massageChcker=false;
-    if(emailChecker==false && massageChcker==false && titleChecker==false)
-      DioHelper.postData(endpoint: "/api/messages/send", formData: {"from":emailController.text,"subject":titleController.text,"body":massController.text},context: context).then((value) {
-
-          Navigator.of(context).pop();
+        massageChcker = true;
+      });
+    else
+      massageChcker = false;
+    if (emailChecker == false &&
+        massageChcker == false &&
+        titleChecker == false)
+      DioHelper.postData(
+              endpoint: "/api/messages/send",
+              formData: {
+                "from": emailController.text,
+                "subject": titleController.text,
+                "body": massController.text
+              },
+              context: context)
+          .then((value) {
+        Navigator.of(context).pop();
       });
   }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -68,13 +79,10 @@ class ContactScreenState extends State<ContactScreen> {
               width: double.infinity,
               child: SingleChildScrollView(
                 child: Column(
-
-                 crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-
                       children: [
-
                         Text(
                           'Email Address'.tr(),
                           textAlign: TextAlign.start,
@@ -93,12 +101,16 @@ class ContactScreenState extends State<ContactScreen> {
                           hint: 'Email Address'.tr(),
                           maxLines: 1,
                         ),
-                      emailChecker==false?Container():  Text("Please enter email".tr(),style: TextStyle(color: Colors.red),)
+                        emailChecker == false
+                            ? Container()
+                            : Text(
+                                "Please enter email".tr(),
+                                style: TextStyle(color: Colors.red),
+                              )
                       ],
                     ),
                     Row(
                       children: [
-
                         Text(
                           'subject'.tr(),
                           textAlign: TextAlign.start,
@@ -107,21 +119,26 @@ class ContactScreenState extends State<ContactScreen> {
                         ),
                       ],
                     ),
-                    Column(crossAxisAlignment: CrossAxisAlignment.start,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         ContantCartFormField(
-                           checker: titleChecker,
+                          checker: titleChecker,
                           controller: titleController,
                           type: TextInputType.text,
                           hint: 'subject'.tr(),
                           maxLines: 1,
                         ),
-                        emailChecker==false?Container():  Text("Please enter subject".tr(),style: TextStyle(color: Colors.red),)
+                        emailChecker == false
+                            ? Container()
+                            : Text(
+                                "Please enter subject".tr(),
+                                style: TextStyle(color: Colors.red),
+                              )
                       ],
                     ),
                     Row(
                       children: [
-
                         Text(
                           'Message'.tr(),
                           textAlign: TextAlign.start,
@@ -133,20 +150,25 @@ class ContactScreenState extends State<ContactScreen> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        ContantCartFormField(checker: massageChcker,
+                        ContantCartFormField(
+                          checker: massageChcker,
                           controller: massController,
                           type: TextInputType.text,
                           maxLines: 6,
                           hint: 'Write here'.tr(),
                         ),
-                        emailChecker==false?Container():  Text("Please enter message".tr(),style: TextStyle(color: Colors.red),)
+                        emailChecker == false
+                            ? Container()
+                            : Text(
+                                "Please enter message".tr(),
+                                style: TextStyle(color: Colors.red),
+                              )
                       ],
-
                     ),
                     SizedBox(height: .05.sh),
                     InkWell(
                       onTap: () {
-                       checkEmpty();
+                        checkEmpty();
                       },
                       child: Center(
                         child: Container(
@@ -186,11 +208,11 @@ class ContactScreenState extends State<ContactScreen> {
   }) {
     return Card(
         color: Colors.grey[300],
-
         shape: RoundedRectangleBorder(
-             side:checker==true? BorderSide(width: 1,color:  Colors.red):BorderSide(width: 0),
+          side: checker == true
+              ? BorderSide(width: 1, color: Colors.red)
+              : BorderSide(width: 0),
           borderRadius: BorderRadius.all(
-
             Radius.circular(16.0),
           ),
         ),
@@ -203,7 +225,6 @@ class ContactScreenState extends State<ContactScreen> {
               decoration: InputDecoration(
                 border: InputBorder.none,
                 hintText: hint,
-
                 hintStyle: TextStyle(
                   fontSize: 15,
                 ),

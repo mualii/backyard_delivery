@@ -34,6 +34,12 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSCameraUsageDescription</key>
+    <string>We Use it to Upload your profile picture</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>We Use it to Upload your profile picture</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We Use it to Upload your profile picture</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
 	<key>UISupportedInterfaceOrientations</key>

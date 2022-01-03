@@ -107,10 +107,10 @@ class _MyAppState extends State<MyApp> {
       FirebaseMessaging.instance.getToken().then((value) {
         String? token = value;
         print("FireBaseToken    " + token.toString());
-        DioHelper.postData(
-            endpoint: "/api/user/fcm",
-            context: context,
-            formData: {"fcm": token});
+        // DioHelper.postData(
+        //     endpoint: "/api/user/fcm",
+        //     context: context,
+        //     formData: {"fcm": token});
       });
     }
     _requestPermissions();

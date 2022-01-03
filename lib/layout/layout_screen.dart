@@ -8,12 +8,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class NavigationBar extends StatefulWidget {
+class MainScreen extends StatefulWidget {
   @override
-  _NavigationBarState createState() => _NavigationBarState();
+  _MainScreenState createState() => _MainScreenState();
 }
 
-class _NavigationBarState extends State<NavigationBar>
+class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> animation;

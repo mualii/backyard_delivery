@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen>
   checkFirstSeen() {
     Timer(Duration(seconds: 2), () {
       Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => LocalStorage.getData(key: "deviceToken")==null ?LoginScreen():NavigationBar()));
+          MaterialPageRoute(builder: (context) => LocalStorage.getData(key: "deviceToken")==null ?LoginScreen():MainScreen()));
     });
   }
 
@@ -37,7 +37,7 @@ class _SplashScreenState extends State<SplashScreen>
       body: Center(
         child: Container(
           child: Image.asset(
-            "assets/images/logo.png",
+            "assets/images/512.jpg",
             fit: BoxFit.contain,
           ),
         ),

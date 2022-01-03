@@ -163,7 +163,7 @@ class LoginScreenState extends State<LoginScreen> {
                                                   formData: {"fcm": token});
                                             });
                                             navigateAndFinish(
-                                                context, NavigationBar());
+                                                context, MainScreen());
                                           } else
                                             Fluttertoast.showToast(
                                                 msg: "Invaild email or password"
@@ -172,7 +172,7 @@ class LoginScreenState extends State<LoginScreen> {
                                       } catch (e) {}
                                     } else {
                                       navigateAndFinish(
-                                          context, NavigationBar());
+                                          context, MainScreen());
                                     }
                                   },
                                   title: 'Go'.tr()),
