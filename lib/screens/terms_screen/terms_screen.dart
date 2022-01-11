@@ -25,21 +25,21 @@ class TermsScreen extends StatelessWidget {
             borderRadius: BorderRadius.only(
                 topRight: Radius.circular(30), topLeft: Radius.circular(30)),
           ),
-          child: BlocConsumer<TermsAndConditonsCubit,TermsAndConditonsState>(
-            listener: (context,state){},
-            builder:(context,state)=> state is TermsAndConditonsLoaded? SingleChildScrollView(
-              child: Padding(
-                padding:
-                    EdgeInsets.symmetric(vertical: 0.03.sh, horizontal: 0.03.sw),
-                child: Center(
-                  child: Html(
-data:
-                  state.terms!,
-
-                  ),
-                ),
-              ),
-            ):Center(child: CircularProgressIndicator()),
+          child: BlocConsumer<TermsAndConditonsCubit, TermsAndConditonsState>(
+            listener: (context, state) {},
+            builder: (context, state) => state is TermsAndConditonsLoaded
+                ? SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: 0.03.sh, horizontal: 0.03.sw),
+                      child: Center(
+                        child: Html(
+                          data: state.terms!,
+                        ),
+                      ),
+                    ),
+                  )
+                : Center(child: CircularProgressIndicator()),
           ),
         ),
       ),

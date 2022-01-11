@@ -1,3 +1,4 @@
+import 'package:backyard_delivery/services/localstroage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -30,7 +31,6 @@ Widget defaultFormField({
   bool isClickable = true,
 }) =>
     TextFormField(
-
       maxLines: maxLines,
       controller: controller,
       keyboardType: type,
@@ -39,11 +39,9 @@ Widget defaultFormField({
       onFieldSubmitted: onSubmit,
       onChanged: onChange,
       onTap: onTap,
-
       validator: validate,
       textAlign: TextAlign.start,
       decoration: InputDecoration(
-
         hintText: hint,
         hintStyle: TextStyle(
           fontSize: 10,
@@ -60,9 +58,12 @@ Widget defaultFormField({
                 ),
               )
             : null,
-        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)) ,
-        enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(20),borderSide:checker==false? BorderSide(width: 0): BorderSide(width:1,color: Colors.red)),
-
+        border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(20),
+            borderSide: checker == false
+                ? BorderSide(width: 0)
+                : BorderSide(width: 1, color: Colors.red)),
       ),
     );
 
@@ -110,12 +111,18 @@ Widget DefaultItemButton(
                   fontSize: 58.sp,
                   fontWeight: FontWeight.w700),
             ),
-            Container(
-              height: 60.w,
-              width: 60.w,
-              child: Image.asset(
-                image,
-                fit: BoxFit.contain,
+            Transform(
+              alignment: Alignment.center,
+              transform: LocalStorage.getData(key: "Lang") == "ar"
+                  ? Matrix4.rotationY(3.14)
+                  : Matrix4.rotationY(0),
+              child: Container(
+                height: 60.w,
+                width: 60.w,
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.contain,
+                ),
               ),
             ),
           ],

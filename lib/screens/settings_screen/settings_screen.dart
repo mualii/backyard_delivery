@@ -2,6 +2,7 @@ import 'package:backyard_delivery/cubits/deliveryHistory/deliveryHistoryCubit.da
 import 'package:backyard_delivery/screens/contact_screen/contant_screen.dart';
 import 'package:backyard_delivery/screens/login_screen/login_screen.dart';
 import 'package:backyard_delivery/screens/previous_orders_screen/previous_orders_screen.dart';
+import 'package:backyard_delivery/screens/splash_screen/splash_screen.dart';
 import 'package:backyard_delivery/screens/terms_screen/terms_screen.dart';
 import 'package:backyard_delivery/services/localstroage.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
@@ -14,16 +15,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsScreen extends StatelessWidget {
-goEnglish(BuildContext context){
-  LocalStorage.saveData(key: "Lang", value: "en");
-  context.locale = Locale('en', 'US');
-  Navigator.of(context).pop();
-}
-goArabic(BuildContext context){
-  LocalStorage.saveData(key: "Lang", value: "ar");
-  context.locale = Locale('ar', 'AR');
-  Navigator.of(context).pop();
-}
+  goEnglish(BuildContext context) async {
+    await LocalStorage.saveData(key: "Lang", value: "en");
+    context.locale = Locale('en', 'US');
+    Navigator.of(context).pop();
+
+    navigateAndFinish(context, SplashScreen());
+  }
+
+  goArabic(BuildContext context) async {
+    await LocalStorage.saveData(key: "Lang", value: "ar");
+    context.locale = Locale('ar', 'AR');
+    Navigator.of(context).pop();
+
+    navigateAndFinish(context, SplashScreen());
+  }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -49,7 +56,6 @@ goArabic(BuildContext context){
                 child: Center(
                   child: Column(
                     children: [
-
                       SizedBox(
                         height: 90.h,
                       ),
@@ -74,7 +80,6 @@ goArabic(BuildContext context){
                         title: 'CONTACT'.tr(),
                         image: 'assets/images/back button.png',
                         Ontap: () {
-
                           navigateTo(context, ContactScreen());
                         },
                       ),
@@ -92,8 +97,11 @@ goArabic(BuildContext context){
                       Spacer(),
                       Align(
                         child: defaultTextButton(
-                            function: () {LocalStorage.removeData(key: "deviceToken");
-                            navigateAndFinish(context,LoginScreen());}, title: 'LOG OUT'.tr()),
+                            function: () {
+                              LocalStorage.removeData(key: "deviceToken");
+                              navigateAndFinish(context, LoginScreen());
+                            },
+                            title: 'LOG OUT'.tr()),
                         alignment: Alignment.bottomRight,
                       ),
                     ],
@@ -122,14 +130,11 @@ goArabic(BuildContext context){
                   ],
                 ),
                 onPressed: () {
-
-              goEnglish(context);
-              DeliveryHistoryCubit.get(context).getHistory(context,1);
+                  goEnglish(context);
+                  DeliveryHistoryCubit.get(context).getHistory(context, 1);
                 },
               ),
               CupertinoActionSheetAction(
-
-
                 child: Column(
                   children: [
                     Image.asset("assets/images/saudi-arabia.png"),
@@ -137,10 +142,8 @@ goArabic(BuildContext context){
                   ],
                 ),
                 onPressed: () {
-
                   goArabic(context);
-                  DeliveryHistoryCubit.get(context).getHistory(context,1);
-
+                  DeliveryHistoryCubit.get(context).getHistory(context, 1);
                 },
               ),
             ],
