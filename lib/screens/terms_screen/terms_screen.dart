@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class TermsScreen extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class TermsScreen extends StatelessWidget {
       },
       child: Scaffold(
         backgroundColor: Color(0xffB09B87),
-        appBar: customisedAppBar(context, true, true, 'Terms and Conditions'),
+        appBar: customisedAppBar(context, true, true, 'Terms and Conditions'.tr()),
         body: Container(
           decoration: BoxDecoration(
             color: Colors.white,

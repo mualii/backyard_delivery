@@ -51,7 +51,7 @@ loadMoredata(BuildContext context, DeliveryHistoryCubit deliveryCubit){
                 child: state is DeliveryHistoryLoading
                     ? Center(child: CircularProgressIndicator())
                     : deliveryCubit.availableList!.length == 0
-                        ? Text("لايوجد طلبات سابقه",  style: TextStyle(fontSize: 60.sp, color: Color(0xffB09B87)),)
+                        ? Text("noOrders".tr(),  style: TextStyle(fontSize: 60.sp, color: Color(0xffB09B87)),)
                         :Column(
                           children: [
                             Expanded(

@@ -1,4 +1,5 @@
 import 'package:backyard_delivery/cubits/deliveryHistory/deliveryHistoryCubit.dart';
+import 'package:backyard_delivery/main.dart';
 import 'package:backyard_delivery/screens/contact_screen/contant_screen.dart';
 import 'package:backyard_delivery/screens/login_screen/login_screen.dart';
 import 'package:backyard_delivery/screens/previous_orders_screen/previous_orders_screen.dart';
@@ -8,6 +9,7 @@ import 'package:backyard_delivery/services/localstroage.dart';
 import 'package:backyard_delivery/shared/components/components.dart';
 import 'package:backyard_delivery/shared/widgets/customised_appBar.dart';
 import 'package:backyard_delivery/shared/widgets/search_text_field.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -16,19 +18,21 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SettingsScreen extends StatelessWidget {
   goEnglish(BuildContext context) async {
-    await LocalStorage.saveData(key: "Lang", value: "en");
-    context.locale = Locale('en', 'US');
+   await LocalStorage.saveData(key: "Lang", value: "en");
+    await context.setLocale(EasyLocalization.of(context)!.supportedLocales[0]);
+    context.setLocale(Locale('en'));
     Navigator.of(context).pop();
 
-    navigateAndFinish(context, SplashScreen());
+    navigateAndFinish(context, MyApp());
   }
 
   goArabic(BuildContext context) async {
     await LocalStorage.saveData(key: "Lang", value: "ar");
-    context.locale = Locale('ar', 'AR');
+    await context.setLocale(EasyLocalization.of(context)!.supportedLocales[1]);
+    context.setLocale(Locale('ar'));
     Navigator.of(context).pop();
 
-    navigateAndFinish(context, SplashScreen());
+    navigateAndFinish(context, MyApp());
   }
 
   @override

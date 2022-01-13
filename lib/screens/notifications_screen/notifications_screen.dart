@@ -58,7 +58,7 @@ class NotificationsScreen extends StatelessWidget {
                       : NotificationCubit.get(context).data!.isEmpty
                           ? Center(
                               child: Text(
-                                "You have no notification",
+                                "notification".tr(),
                                 style: TextStyle(
                                   fontSize: 32,
                                   color: Color(0xff80392C),

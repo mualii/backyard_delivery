@@ -19,6 +19,8 @@
 
   "language": "اللغة",
   "Choose your language": "إختار اللغة",
+  "notification" : "ليس لديك اشعارات",
+  "noOrders" : "لا يوجد طلبات سابقة",
   "Arabic": "العربية",
   "English": "الانجليزية",
   "cancel":"إلغاء",
